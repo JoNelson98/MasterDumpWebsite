@@ -1,0 +1,28 @@
+export const colors = {
+  primary: "#0070f3",
+  secondary: "#ff0070",
+  accent: "#ff0070",
+  background: "#fff",
+  foreground: "#000",
+  text: "#000",
+  muted: "#f6f6f6",
+  gray: "#777",
+  highlight: "hsla(205, 100%, 40%, 0.125)",
+  purple: "#7928CA",
+  pink: "#FF0080",
+  modes: {
+    dark: {
+      primary: "#0070f3",
+      secondary: "#ff0070",
+      accent: "#ff0070",
+      background: "#000",
+      foreground: "#fff",
+      text: "#fff",
+      muted: "#111",
+      gray: "#999",
+      highlight: "hsla(205, 100%, 40%, 0.125)",
+      purple: "#7928CA",
+      pink: "#FF0080",
+    },
+  },
+}
