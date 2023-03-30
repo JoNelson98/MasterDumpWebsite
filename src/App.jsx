@@ -1,26 +1,29 @@
-import { useContext, useState } from "react"
-import reactLogo from "./assets/react.svg"
-import viteLogo from "/vite.svg"
+import { useState, useEffect } from "react"
 import "./App.css"
 import Headerr from "./components/Header"
-import { CounterContext } from "./contexts/Counter.ctx"
-import Hero from "./components/Hero"
+import TrueHero from "./components/Truehero"
 import { MantineProvider, ColorSchemeProvider } from "@mantine/core"
 import { testdata } from "./assets/testdata"
+import Contact from "./components/Contact"
 
 function App() {
-  const { counter, setCounter } = useContext(CounterContext)
-  const [colorScheme, setColorScheme] = useState("light")
+  const storage = typeof window !== "undefined" ? localStorage.theme : "light"
+  const [colorScheme, setColorScheme] = useState(storage)
   const toggleColorScheme = (color) => {
     setColorScheme(color || (colorScheme === "dark" ? "light" : "dark"))
   }
+  useEffect(() => {
+    localStorage.setItem("theme", colorScheme)
+    setColorScheme(colorScheme)
+  }, [colorScheme])
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: colorScheme === "dark" ? "#282A3A" : "white" }}>
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={{ colorScheme }}>
           <Headerr links={testdata} style={{ marginBottom: 0 }} />
-          <Hero />
+          <TrueHero />
+          <Contact />
         </MantineProvider>
       </ColorSchemeProvider>
     </div>

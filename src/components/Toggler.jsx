@@ -10,8 +10,6 @@ export default function Toggler() {
     <div>
       <Group
         sx={{
-          //   paddingLeft: "18rem",
-          //   flexGrow: 1,
           marginRight: "1rem",
         }}
         position="center"

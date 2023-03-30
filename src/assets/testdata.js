@@ -1,6 +1,6 @@
 export const testdata = [
   {
-    label: "About Us",
+    label: "Book Rental",
     link: "https://mantine.dev/",
   },
   {

@@ -2,12 +2,12 @@ import React from "react"
 import { createStyles, Header, Menu, Group, Center, Burger, Container, rem } from "@mantine/core"
 import { useDisclosure, useViewportSize } from "@mantine/hooks"
 import { IconChevronDown } from "@tabler/icons-react"
-import { MantineLogo } from "@mantine/ds"
+import logo from "../../public/local/thelogo2.png"
 import Toggler from "./Toggler"
 
 const useStyles = createStyles((theme) => ({
   header: {
-    backgroundColor: theme.fn.variant({ variant: "filled", color: theme.primaryColor }).background,
+    backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.blue[7],
     borderBottom: 0,
     marginBottom: 0,
   },
@@ -94,7 +94,7 @@ export default function Headerr({ links }) {
     <Header height={56} className={classes.header}>
       <Container>
         <div className={classes.inner}>
-          <MantineLogo size={28} inverted />
+          <img style={{ height: "170px" }} src={logo} alt="master dump logo" />
           <Group spacing={5} className={classes.links}>
             <Toggler />
 
