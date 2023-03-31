@@ -5,6 +5,7 @@ import TrueHero from "./components/Truehero"
 import { MantineProvider, ColorSchemeProvider } from "@mantine/core"
 import { testdata } from "./assets/testdata"
 import Contact from "./components/Contact"
+import useLocalStorage from "./hooks/useLocalStorage"
 
 function App() {
   const storage = typeof window !== "undefined" ? localStorage.theme : "light"
@@ -12,10 +13,11 @@ function App() {
   const toggleColorScheme = (color) => {
     setColorScheme(color || (colorScheme === "dark" ? "light" : "dark"))
   }
-  useEffect(() => {
-    localStorage.setItem("theme", colorScheme)
-    setColorScheme(colorScheme)
-  }, [colorScheme])
+  // useEffect(() => {
+  //   localStorage.setItem("theme", colorScheme)
+  //   setColorScheme(colorScheme)
+  // }, [colorScheme])
+  useLocalStorage(colorScheme, "theme")
 
   return (
     <div className="App" style={{ backgroundColor: colorScheme === "dark" ? "#282A3A" : "white" }}>
